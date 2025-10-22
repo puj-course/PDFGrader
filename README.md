@@ -15,12 +15,12 @@ SmartRubrics está orientado a reducir brechas digitales y educativas, especialm
 
 Responsables de la definición del alcance pedagógico, desarrollo técnico e implementación.
 
-- **[Juan Pablo Arias](https://github.com/JuanParias29/Perfil_GitHub)** – *Data Scientist & Scrum Master*  
-- **[Paula Andrea Romero](https://github.com/Andyy870)** – *Data Scientist & ML Engineer*  
+- **[Juan Pablo Arias Buitrago](https://github.com/JuanParias29/Perfil_GitHub)** – *Data Scientist & Scrum Master*  
+- **[Paula Andrea Velasquez Romero](https://github.com/Andyy870)** – *Data Scientist & ML Engineer*  
 - **[Laura Victoria Beltrán Arias](https://github.com/Vankold1)** – *Data Scientist & Business Analyst*  
-- **[Daniel Ávila](https://github.com/dsavilam)** – *ML Engineer & MLOps*
+- **[Daniel Santiago Avila Medina](https://github.com/dsavilam)** – *ML Engineer & MLOps*
 
-### Dirección académica
+## Dirección académica
 
 PhD Luis Gabriel Moreno Sandoval  
 Pontificia Universidad Javeriana  
