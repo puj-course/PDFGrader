@@ -7,7 +7,7 @@
 
 Desarrollar una plataforma basada en inteligencia artificial que automatice la evaluación de evidencias académicas en formato PDF, utilizando rúbricas personalizadas definidas por docentes. El sistema entrega retroalimentación precisa, detecta plagio y errores de formato, y genera calificaciones objetivas, contribuyendo a agilizar la corrección y mejorar la calidad educativa.
 
-SmartRubrics está orientado a reducir brechas digitales y educativas, especialmente en entornos vulnerables, promoviendo la inclusión y el aprendizaje con sentido en regiones desfavorecidas.
+PDFGrader está orientado a reducir brechas digitales y educativas, especialmente en entornos vulnerables, promoviendo la inclusión y el aprendizaje con sentido en regiones desfavorecidas.
 
 ---
 
@@ -30,7 +30,7 @@ Pontificia Universidad Javeriana
 
 ## Estructura del Proyecto
 ```
-smartRubrics/
+pdfGrader/
 │
 ├── app/                      # Código fuente de la aplicación
 │   ├── main.py               # Punto de entrada de la aplicación
@@ -58,7 +58,7 @@ cd SmartRubrics
 ---
 ## Documentación y Ética
 
-SmartRubrics fue desarrollado bajo el marco del Hack4Edu 2024, con un compromiso ético para garantizar una evaluación inclusiva y justa. Se busca promover la equidad educativa mediante tecnología adaptada para comunidades vulnerables, priorizando la privacidad y el respeto por los datos de estudiantes y docentes.
+PDFGrader fue desarrollado bajo el marco del Hack4Edu 2024, con un compromiso ético para garantizar una evaluación inclusiva y justa. Se busca promover la equidad educativa mediante tecnología adaptada para comunidades vulnerables, priorizando la privacidad y el respeto por los datos de estudiantes y docentes.
 
 **Licencia:** Distribuido bajo la Apache License Version 2.0.
 
