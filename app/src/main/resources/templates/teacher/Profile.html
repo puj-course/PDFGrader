@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Perfil Profesor</title><meta name="viewport" content="width=device-width, initial-scale=1"/></head>
+<body>
+<h2>Mi perfil</h2>
+<p><b>Nombre:</b> <span th:text="${user.fullName}"></span></p>
+<p><b>Email:</b> <span th:text="${user.email}"></span></p>
+
+<p>
+    <a th:href="@{/teacher/portal}">Volver al portal</a> |
+<form th:action="@{/logout}" method="post" style="display:inline"><button>Cerrar sesión</button></form>
+</p>
+</body>
+</html>

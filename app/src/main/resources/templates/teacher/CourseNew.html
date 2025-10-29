@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Crear curso</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+</head>
+<body>
+<h2>Crear curso</h2>
+
+<div th:if="${error}" th:text="${error}" style="color:red"></div>
+
+<form th:action="@{/teacher/course}" method="post" th:object="${form}">
+    <!-- CSRF (seguridad) -->
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+
+    <label>Código</label><br/>
+    <input type="text" th:field="*{code}" required/><br/>
+
+    <label>Nombre</label><br/>
+    <input type="text" th:field="*{name}" required/><br/>
+
+    <h4>Inscribir alumnos</h4>
+    <div style="max-height:250px; overflow:auto; border:1px solid #ccc; padding:8px;">
+        <label th:each="al : ${alumnos}">
+            <input type="checkbox" th:field="*{studentIds}" th:value="${al.id}"/>
+            <span th:text="${al.fullName} + ' (' + ${al.email} + ')'"></span><br/>
+        </label>
+    </div>
+
+    <br/>
+    <button type="submit">Crear y matricular</button>
+</form>
+
+<p><a th:href="@{/teacher/portal}">Volver</a></p>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Portal Profesor</title><meta name="viewport" content="width=device-width, initial-scale=1"/></head>
+<body>
+<h2>Portal Profesor</h2>
+<p>
+    <a th:href="@{/teacher/profile}">Mi perfil</a> |
+    <a th:href="@{/teacher/course/new}">Crear curso</a> |
+<form th:action="@{/logout}" method="post" style="display:inline"><button>Salir</button></form>
+</p>
+
+<div th:if="${success}" th:text="${success}" style="color:green"></div>
+
+<h3>Mis cursos</h3>
+<ul>
+    <li th:each="c : ${courses}">
+        <a th:href="@{|/teacher/course/${c.id}|}" th:text="${c.code} + ' - ' + ${c.name}"></a>
+        <ul>
+            <li>Próximas tareas:
+                <ul>
+                    <li th:each="a : ${assignmentsByCourse[c.id]}">
+                        <a th:href="@{|/teacher/assignment/${a.id}|}" th:text="${a.title}"></a>
+                        (<span th:text="${a.dueAt}"></span>)
+                    </li>
+                    <li th:if="${#lists.isEmpty(assignmentsByCourse[c.id])}">Sin tareas</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li th:if="${#lists.isEmpty(courses)}">No tienes cursos asignados</li>
+</ul>
+</body>
+</html>

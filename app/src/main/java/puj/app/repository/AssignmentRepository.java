@@ -7,4 +7,7 @@ import java.util.List;
 
 public interface AssignmentRepository extends JpaRepository<Assignment, String> {
     List<Assignment> findByCourseIdOrderByDueAtAsc(String courseId);
+    List<Assignment> findByCourseIdInOrderByDueAtAsc(List<String> courseIds);
+    Optional<Assignment> findById(String id);
+
 }

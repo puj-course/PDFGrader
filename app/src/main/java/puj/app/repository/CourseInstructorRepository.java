@@ -6,5 +6,6 @@ import java.util.Optional;
 import java.util.List;
 
 public interface CourseInstructorRepository extends JpaRepository<CourseInstructor, String> {
-
+    List<CourseInstructor> findByUserId(String userId);
+    List<CourseInstructor> findByCourseId(String courseId);
 }

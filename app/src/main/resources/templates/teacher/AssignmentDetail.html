@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Detalle tarea</title><meta name="viewport" content="width=device-width, initial-scale=1"/></head>
+<body>
+<h2 th:text="${course.code} + ' - ' + ${course.name}"></h2>
+<h3 th:text="${assignment.title}"></h3>
+<p><b>Fecha límite:</b> <span th:text="${assignment.dueAt}"></span></p>
+
+<table border="1" cellpadding="6">
+    <thead>
+    <tr><th>Alumno</th><th>Estado</th><th>Nota</th></tr>
+    </thead>
+    <tbody>
+    <tr th:each="r : ${rows}">
+        <td th:text="${r.student.fullName}"></td>
+        <td th:text="${r.status}"></td>
+        <td th:text="${r.nota}"></td>
+    </tr>
+    <tr th:if="${#lists.isEmpty(rows)}"><td colspan="3">Sin alumnos</td></tr>
+    </tbody>
+</table>
+
+<p>
+    <a th:href="@{|/teacher/course/${assignment.courseId}|}">Volver al curso</a> |
+    <a th:href="@{/teacher/portal}">Portal</a>
+</p>
+</body>
+</html>

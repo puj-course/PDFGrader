@@ -47,8 +47,10 @@ public class SecurityConfig {
                 .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED))
                 .formLogin(form -> form
                         .loginPage("/login").permitAll()
-                        .defaultSuccessUrl("/dashboard", true)
-                        .failureUrl("/login?error"))
+                        .defaultSuccessUrl("/after-login", true)
+                        .failureUrl("/login?error")
+                        .loginProcessingUrl("/login")
+                )
                 .logout(l -> l.logoutUrl("/logout").logoutSuccessUrl("/login?logout").permitAll())
                 .authenticationProvider(authenticationProvider());
         return http.build();

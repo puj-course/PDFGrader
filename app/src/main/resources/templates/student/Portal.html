@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"><title>Portal Alumno</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+</head>
+<body>
+<h2>Portal Alumno</h2>
+<p th:text="'Hola, ' + ${me.username}"></p>
+
+<div th:if="${success}" th:text="${success}" style="color:green"></div>
+
+<h3>Mis cursos</h3>
+<ul>
+    <li th:each="c : ${courses}" th:text="${c.code} + ' - ' + ${c.name}"></li>
+    <li th:if="${#lists.isEmpty(courses)}">Sin cursos inscritos</li>
+</ul>
+
+<h3>Tareas asignadas</h3>
+<table border="1" cellpadding="6">
+    <thead><tr><th>Curso</th><th>Tarea</th><th>Fecha límite</th><th>Subir</th></tr></thead>
+    <tbody>
+    <tr th:each="a : ${assignments}">
+        <td th:text="${a.courseId}"></td>
+        <td th:text="${a.title}"></td>
+        <td th:text="${a.dueAt}"></td>
+        <td>
+            <form th:action="@{/student/upload}" method="post" enctype="multipart/form-data" th:object="${form}">
+                <input type="hidden" th:field="*{assignmentId}" th:value="${a.id}"/>
+                <input type="file" th:field="*{file}" accept="application/pdf" required/>
+                <button type="submit">Enviar</button>
+            </form>
+        </td>
+    </tr>
+    <tr th:if="${#lists.isEmpty(assignments)}"><td colspan="4">Sin tareas</td></tr>
+    </tbody>
+</table>
+
+<h3>Mis entregas</h3>
+<table border="1" cellpadding="6">
+    <thead><tr><th>Tarea</th><th>Estado</th><th>Nota</th><th>Fecha</th></tr></thead>
+    <tbody>
+    <tr th:each="s : ${mySubmissions}">
+        <td th:text="${s.assignmentId}"></td>
+        <td th:text="${s.status}"></td>
+        <td th:text="${s.finalScore}"></td>
+        <td th:text="${s.createdAt}"></td>
+    </tr>
+    <tr th:if="${#lists.isEmpty(mySubmissions)}"><td colspan="4">Aún no has subido entregas</td></tr>
+    </tbody>
+</table>
+
+<form th:action="@{/logout}" method="post"><button>Salir</button></form>
+</body>
+</html>
