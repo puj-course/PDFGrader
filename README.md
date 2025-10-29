@@ -51,8 +51,8 @@ pdfGrader/
 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/puj-course/SmartRubrics.git
-cd SmartRubrics
+git clone https://github.com/puj-course/PDFGrader.git
+cd PDFGrader
 ```
 
 ---
