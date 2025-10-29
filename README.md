@@ -1,4 +1,4 @@
-# 📝SmartRubrics
+# 📝PDFGrader
 **Transformando la evaluación, transformamos vidas.**
 
 ---
