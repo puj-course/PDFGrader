@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"><title>Registrar Profesor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+</head>
+<body>
+<h2>Registrar Profesor</h2>
+
+<div th:if="${error}" th:text="${error}" style="color:red"></div>
+<div th:if="${success}" th:text="${success}" style="color:green"></div>
+
+<form th:action="@{/register/professor}" method="post" th:object="${form}">
+    <label>Email</label><br/>
+    <input type="email" th:field="*{email}" required/><br/>
+    <label>Nombre completo</label><br/>
+    <input type="text" th:field="*{fullName}" required/><br/>
+    <label>Contraseña</label><br/>
+    <input type="password" th:field="*{password}" minlength="8" required/><br/><br/>
+    <button type="submit">Crear profesor</button>
+</form>
+
+<p><a th:href="@{/login}">Volver a iniciar sesión</a></p>
+</body>
+</html>
