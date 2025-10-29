@@ -21,16 +21,23 @@ public class TeacherService {
     private final RubricRepository rubricRepo;
 
     @Transactional
-    public void uploadSyllabus(String courseId, Integer version, String title,
-                               MultipartFile file, String uploadedBy) {
+    public void uploadSyllabusAutoVersion(String courseId, String title,
+                                          MultipartFile file, String uploadedBy) {
         try {
-            String key = "syllabi/" + courseId + "/v" + version + "/" + UUID.randomUUID() + ".pdf";
+            // busca última versión
+            Integer nextVersion = syllabusRepo
+                    .findTopByCourseIdOrderByVersionDesc(courseId)
+                    .map(Syllabus::getVersion)
+                    .map(v -> v + 1)
+                    .orElse(1);
+
+            String key = "syllabi/" + courseId + "/v" + nextVersion + "/" + UUID.randomUUID() + ".pdf";
             String uri = storage.upload(key, file.getInputStream(), file.getSize(), file.getContentType());
 
             var s = Syllabus.builder()
                     .id(UUID.randomUUID().toString())
                     .courseId(courseId)
-                    .version(version)
+                    .version(nextVersion)
                     .title(title)
                     .fileUri(uri)
                     .uploadedBy(uploadedBy)

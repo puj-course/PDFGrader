@@ -1,24 +1,40 @@
 <!doctype html>
-<html>
+<html lang="es">
 <head>
     <meta charset="utf-8"><title>Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/dashboard.css}">
 </head>
 <body>
-<h2>Dashboard</h2>
-<p th:text="'Hola, ' + ${me.username}"></p>
+<div class="scene">
+    <main class="shell">
+        <section class="card pop">
+            <header class="bar">
+                <h2 class="title">Dashboard</h2>
+                <form th:action="@{/logout}" method="post" class="inline"><button class="btn ghost">Salir</button></form>
+            </header>
 
-<h3>Profesor</h3>
-<ul>
-    <li><a th:href="@{/teacher/upload-syllabus}">Subir Temario (PDF)</a></li>
-    <li><a th:href="@{/teacher/upload-rubric}">Subir Rúbrica (PDF)</a></li>
-</ul>
+            <p class="hello" th:text="'Hola, ' + ${me.username}"></p>
 
-<h3>Alumno</h3>
-<ul>
-    <li><a th:href="@{/student/upload-submission}">Subir Entrega (PDF)</a></li>
-</ul>
+            <div class="grid">
+                <div class="panel">
+                    <h3>Profesor</h3>
+                    <ul class="list">
+                        <li><a class="link" th:href="@{/teacher/upload-syllabus}">Subir Temario (PDF)</a></li>
+                        <li><a class="link" th:href="@{/teacher/upload-rubric}">Subir Rúbrica (PDF)</a></li>
+                    </ul>
+                </div>
 
-<form th:action="@{/logout}" method="post"><button>Salir</button></form>
+                <div class="panel">
+                    <h3>Alumno</h3>
+                    <ul class="list">
+                        <li><a class="link" th:href="@{/student/upload-submission}">Subir Entrega (PDF)</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
 </body>
 </html>

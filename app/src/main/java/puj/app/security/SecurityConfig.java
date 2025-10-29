@@ -1,7 +1,8 @@
 package puj.app.security;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
@@ -19,40 +20,58 @@ public class SecurityConfig {
 
     private final DbUserDetailsService userDetailsService;
 
-    @Bean public PasswordEncoder passwordEncoder() {
+    @Bean
+    public PasswordEncoder passwordEncoder() {
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
 
-    @Bean public DaoAuthenticationProvider authenticationProvider() {
-        var p = new DaoAuthenticationProvider();
+    @Bean
+    public DaoAuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider p = new DaoAuthenticationProvider();
         p.setUserDetailsService(userDetailsService);
         p.setPasswordEncoder(passwordEncoder());
         return p;
     }
 
-    @Bean public AuthenticationManager authenticationManager(AuthenticationConfiguration cfg) throws Exception {
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration cfg) throws Exception {
         return cfg.getAuthenticationManager();
     }
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
+                // Para api rest
                 .csrf(csrf -> csrf.ignoringRequestMatchers("/api/**"))
+
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/", "/login", "/register/**", "/css/**", "/js/**", "/images/**").permitAll()
+                        .requestMatchers(
+                                "/", "/login", "/register/**",
+                                "/css/**", "/js/**", "/images/**", "/webjars/**", "/favicon.ico",
+                                "/file/**"
+                        ).permitAll()
                         .requestMatchers("/teacher/**").hasRole("PROFESOR")
                         .requestMatchers("/student/**").hasRole("ALUMNO")
                         .anyRequest().authenticated()
                 )
+
                 .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED))
+
                 .formLogin(form -> form
                         .loginPage("/login").permitAll()
                         .defaultSuccessUrl("/after-login", true)
                         .failureUrl("/login?error")
                         .loginProcessingUrl("/login")
                 )
-                .logout(l -> l.logoutUrl("/logout").logoutSuccessUrl("/login?logout").permitAll())
+
+                .logout(l -> l
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/login?logout")
+                        .permitAll()
+                )
+
                 .authenticationProvider(authenticationProvider());
+
         return http.build();
     }
 }

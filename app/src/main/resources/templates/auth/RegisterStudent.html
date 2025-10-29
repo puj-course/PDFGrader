@@ -1,25 +1,40 @@
 <!doctype html>
-<html>
+<html lang="es">
 <head>
     <meta charset="utf-8"><title>Registrar Alumno</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/register-student.css}">
 </head>
 <body>
-<h2>Registrar Alumno</h2>
+<div class="scene">
+    <div class="particles"></div>
+    <main class="shell">
+        <section class="card float">
+            <h1 class="title">Registrar Alumno</h1>
 
-<div th:if="${error}" th:text="${error}" style="color:red"></div>
-<div th:if="${success}" th:text="${success}" style="color:green"></div>
+            <div th:if="${error}" th:text="${error}" class="alert error"></div>
+            <div th:if="${success}" th:text="${success}" class="alert ok"></div>
 
-<form th:action="@{/register/student}" method="post" th:object="${form}">
-    <label>Email</label><br/>
-    <input type="email" th:field="*{email}" required/><br/>
-    <label>Nombre completo</label><br/>
-    <input type="text" th:field="*{fullName}" required/><br/>
-    <label>Contraseña</label><br/>
-    <input type="password" th:field="*{password}" minlength="8" required/><br/><br/>
-    <button type="submit">Crear alumno</button>
-</form>
+            <form th:action="@{/register/student}" method="post" th:object="${form}" class="form">
+                <label class="field">
+                    <span>Email</span>
+                    <input type="email" th:field="*{email}" required placeholder="alumno@uni.edu"/>
+                </label>
+                <label class="field">
+                    <span>Nombre completo</span>
+                    <input type="text" th:field="*{fullName}" required placeholder="Nombre y Apellidos"/>
+                </label>
+                <label class="field">
+                    <span>Contraseña</span>
+                    <input type="password" th:field="*{password}" minlength="8" required placeholder="Mínimo 8 caracteres"/>
+                </label>
+                <button type="submit" class="btn primary">Crear alumno</button>
+            </form>
 
-<p><a th:href="@{/login}">Volver a iniciar sesión</a></p>
+            <p class="muted"><a th:href="@{/login}" class="link">Volver a iniciar sesión</a></p>
+        </section>
+    </main>
+</div>
 </body>
 </html>

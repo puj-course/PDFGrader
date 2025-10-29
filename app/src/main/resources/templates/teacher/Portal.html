@@ -1,33 +1,43 @@
 <!doctype html>
-<html>
-<head><meta charset="utf-8"><title>Portal Profesor</title><meta name="viewport" content="width=device-width, initial-scale=1"/></head>
+<html lang="es">
+<head>
+    <meta charset="utf-8"><title>Portal Profesor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/teacher-portal.css}">
+</head>
 <body>
-<h2>Portal Profesor</h2>
-<p>
-    <a th:href="@{/teacher/profile}">Mi perfil</a> |
-    <a th:href="@{/teacher/course/new}">Crear curso</a> |
-<form th:action="@{/logout}" method="post" style="display:inline"><button>Salir</button></form>
-</p>
+<div class="scene">
+    <main class="shell">
+        <section class="card pop">
+            <header class="bar">
+                <div class="brand">📘 Portal Profesor</div>
+                <nav class="menu">
+                    <a th:href="@{/teacher/profile}" class="btn ghost">Mi perfil</a>
+                    <a th:href="@{/teacher/course/new}" class="btn primary">Crear curso</a>
+                    <form th:action="@{/logout}" method="post" class="inline"><button class="btn ghost">Salir</button></form>
+                </nav>
+            </header>
 
-<div th:if="${success}" th:text="${success}" style="color:green"></div>
+            <div th:if="${success}" th:text="${success}" class="alert ok"></div>
 
-<h3>Mis cursos</h3>
-<ul>
-    <li th:each="c : ${courses}">
-        <a th:href="@{|/teacher/course/${c.id}|}" th:text="${c.code} + ' - ' + ${c.name}"></a>
-        <ul>
-            <li>Próximas tareas:
-                <ul>
-                    <li th:each="a : ${assignmentsByCourse[c.id]}">
-                        <a th:href="@{|/teacher/assignment/${a.id}|}" th:text="${a.title}"></a>
-                        (<span th:text="${a.dueAt}"></span>)
-                    </li>
-                    <li th:if="${#lists.isEmpty(assignmentsByCourse[c.id])}">Sin tareas</li>
-                </ul>
-            </li>
-        </ul>
-    </li>
-    <li th:if="${#lists.isEmpty(courses)}">No tienes cursos asignados</li>
-</ul>
+            <h3>Mis cursos</h3>
+            <ul class="cards">
+                <li th:each="c : ${courses}" class="course">
+                    <a th:href="@{|/teacher/course/${c.id}|}" class="title" th:text="${c.code} + ' - ' + ${c.name}"></a>
+                    <div class="mini">Próximas tareas</div>
+                    <ul class="tasks">
+                        <li th:each="a : ${assignmentsByCourse[c.id]}">
+                            <a th:href="@{|/teacher/assignment/${a.id}|}" th:text="${a.title}"></a>
+                            <span class="meta" th:text="${a.dueAt}"></span>
+                        </li>
+                        <li th:if="${#lists.isEmpty(assignmentsByCourse[c.id])}" class="muted">Sin tareas</li>
+                    </ul>
+                </li>
+                <li th:if="${#lists.isEmpty(courses)}" class="muted">No tienes cursos asignados</li>
+            </ul>
+        </section>
+    </main>
+</div>
 </body>
 </html>

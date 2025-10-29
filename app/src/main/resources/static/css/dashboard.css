@@ -1,0 +1,22 @@
+:root{--bg:#0b1220;--ink:#e6e9ef;--muted:#9aa4b2;--card:#0f172a;--line:#1f2937;--p:#8b5cf6;--p2:#a78bfa;--shadow:0 24px 70px rgba(2,6,23,.45)}
+*{box-sizing:border-box}html,body{height:100%}
+body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:radial-gradient(1000px 520px at 100% -10%, rgba(167,139,250,.12), transparent 60%), var(--bg)}
+.shell{max-width:1100px;margin:0 auto;padding:60px 22px}
+.card{background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);backdrop-filter:blur(10px);padding:22px}
+.pop{animation:pop .5s ease}@keyframes pop{from{transform:translateY(18px);opacity:0}to{transform:none;opacity:1}}
+
+.bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.title{font-family:Poppins,Inter,sans-serif;margin:0}
+.inline{display:inline}
+.btn{appearance:none;border:1px solid var(--line);background:transparent;color:var(--ink);padding:10px 14px;border-radius:12px;cursor:pointer;text-decoration:none;font-weight:700}
+.btn.ghost:hover{background:rgba(255,255,255,.04)}
+.hello{color:var(--muted)}
+
+.grid{display:grid;gap:16px;grid-template-columns:1fr; margin-top:8px}
+@media (min-width:900px){.grid{grid-template-columns:1fr 1fr}}
+.panel{border:1px solid var(--line);border-radius:16px;padding:14px;background:rgba(255,255,255,.02)}
+.list{list-style:none;margin:8px 0 0;padding:0}
+.list li{padding:10px 12px;border:1px dashed var(--line);border-radius:12px;background:rgba(255,255,255,.02);margin-bottom:8px;transition:transform .12s, background .2s}
+.list li:hover{transform:translateX(2px);background:rgba(255,255,255,.04)}
+.link{color:#c7d2fe;text-decoration:none;font-weight:700}
+.link:hover{text-decoration:underline}

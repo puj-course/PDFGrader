@@ -1,14 +1,32 @@
 <!doctype html>
-<html>
-<head><meta charset="utf-8"><title>Perfil Profesor</title><meta name="viewport" content="width=device-width, initial-scale=1"/></head>
+<html lang="es">
+<head>
+    <meta charset="utf-8"><title>Perfil Profesor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/teacher-profile.css}">
+</head>
 <body>
-<h2>Mi perfil</h2>
-<p><b>Nombre:</b> <span th:text="${user.fullName}"></span></p>
-<p><b>Email:</b> <span th:text="${user.email}"></span></p>
+<div class="scene">
+    <main class="shell">
+        <section class="card pop">
+            <header class="header">
+                <h2 class="title">Mi perfil</h2>
+                <div class="actions">
+                    <a th:href="@{/teacher/portal}" class="btn ghost">Volver al portal</a>
+                    <form th:action="@{/logout}" method="post" class="inline"><button class="btn ghost">Cerrar sesión</button></form>
+                </div>
+            </header>
 
-<p>
-    <a th:href="@{/teacher/portal}">Volver al portal</a> |
-<form th:action="@{/logout}" method="post" style="display:inline"><button>Cerrar sesión</button></form>
-</p>
+            <div class="grid">
+                <div class="avatar">👩‍🏫</div>
+                <div class="info">
+                    <p><b>Nombre:</b> <span th:text="${user.fullName}"></span></p>
+                    <p><b>Email:</b> <span th:text="${user.email}"></span></p>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
 </body>
 </html>

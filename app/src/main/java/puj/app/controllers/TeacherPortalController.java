@@ -239,11 +239,15 @@ public class TeacherPortalController {
             ra.addFlashAttribute("syllabusForm", form);
             return "redirect:/teacher/portal";
         }
-        teacherService.uploadSyllabus(form.getCourseId(), form.getVersion(), form.getTitle(),
+        // OJO: ya no usamos form.getVersion()
+        teacherService.uploadSyllabusAutoVersion(form.getCourseId(), form.getTitle(),
                 form.getFile(), me.getUserId());
         ra.addFlashAttribute("success","Temario subido");
         return "redirect:/teacher/course/" + form.getCourseId();
     }
+
+
+
 
     @PostMapping("/upload-rubric")
     public String uploadRubric(@AuthenticationPrincipal CustomUserDetails me,

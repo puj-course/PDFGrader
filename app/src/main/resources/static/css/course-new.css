@@ -1,0 +1,23 @@
+:root{--bg:#0b1220;--ink:#e6e9ef;--muted:#9aa4b2;--card:#0f172a;--line:#1f2937;--p:#f59e0b;--p2:#fbbf24;--shadow:0 24px 70px rgba(2,6,23,.45)}
+*{box-sizing:border-box}html,body{height:100%}
+body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:radial-gradient(1200px 520px at 50% -10%, rgba(245,158,11,.12), transparent 60%), var(--bg)}
+.shell{max-width:1000px;margin:0 auto;padding:60px 22px}
+.card{background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);backdrop-filter:blur(10px);padding:22px}
+.pop{animation:pop .5s ease}@keyframes pop{from{transform:translateY(18px);opacity:0}to{transform:none;opacity:1}}
+.header{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:12px}
+.title{font-family:Poppins,Inter,sans-serif;margin:0}
+.btn{appearance:none;border:1px solid var(--line);background:transparent;color:var(--ink);padding:10px 14px;border-radius:12px;cursor:pointer;text-decoration:none;font-weight:700}
+.btn.ghost:hover{background:rgba(255,255,255,.04)}
+.btn.primary{background:linear-gradient(135deg,var(--p),var(--p2));color:#0b1220;border:none}
+
+.form{display:grid;gap:14px}
+.cols{display:grid;gap:12px}
+@media (min-width:820px){.cols{grid-template-columns:1fr 1fr}}
+.field{display:grid;gap:8px}
+.field span{color:var(--muted);font-weight:600}
+input{width:100%;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.02);color:var(--ink);border:1px solid var(--line);outline:none;transition:border .2s, box-shadow .2s}
+input:focus{border-color:var(--p);box-shadow:0 0 0 5px rgba(245,158,11,.18)}
+.scrollbox{max-height:250px;overflow:auto;border:1px solid var(--line);border-radius:14px;padding:10px;background:rgba(255,255,255,.02)}
+.check{display:flex;gap:10px;align-items:center;padding:8px;border-radius:10px}
+.check:hover{background:rgba(255,255,255,.03)}
+.alert.error{border-radius:12px;padding:10px 12px;background:rgba(239,68,68,.12);color:#fecaca;border:1px solid var(--line);margin-bottom:10px}
