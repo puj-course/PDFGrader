@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"><title>Mis notas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/student-grades.css}">
+</head>
+<body>
+<div class="scene">
+    <main class="shell">
+        <section class="card pop">
+            <header class="top">
+                <h2>Mis notas</h2>
+                <a th:href="@{/student/portal}" class="btn ghost">Volver al portal</a>
+            </header>
+
+            <p class="hello" th:text="'Alumno: ' + ${me.username}"></p>
+
+            <div class="table-wrap">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Curso</th>
+                        <th>Tarea</th>
+                        <th>Estado</th>
+                        <th>Nota</th>
+                        <th>Fecha de envío</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="r : ${rows}">
+                        <td th:text="${r.courseCode} + ' - ' + ${r.courseName}"></td>
+                        <td th:text="${r.assignmentTitle}"></td>
+                        <td th:text="${r.status}"></td>
+                        <td th:text="${r.nota}"></td>
+                        <td th:text="${r.fechaEnvio}"></td>
+                    </tr>
+                    <tr th:if="${#lists.isEmpty(rows)}"><td colspan="5">Aún no hay registros</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</div>
+</body>
+</html>
