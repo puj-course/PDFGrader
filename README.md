@@ -18,38 +18,20 @@ Responsables de la definición del alcance pedagógico, desarrollo técnico e im
 - **[Juan Pablo Arias Buitrago](https://github.com/JuanParias29/Perfil_GitHub)** – *Data Scientist & Scrum Master*  
 - **[Paula Andrea Velasquez Romero](https://github.com/Andyy870)** – *Data Scientist & ML Engineer*  
 - **[Laura Victoria Beltrán Arias](https://github.com/Vankold1)** – *Data Scientist & Business Analyst*  
-- **[Daniel Santiago Avila Medina](https://github.com/dsavilam)** – *ML Engineer & MLOps*
+- **[Daniel Santiago Avila Medina](https://github.com/dsavilam)** – *Systems Architect & Software Developer*
 
 ## Mentores
 
 - **PhD Luis Gabriel Moreno Sandoval**  
   Pontificia Universidad Javeriana  
   📧 morenoluis@javeriana.edu.co  
-  *Asesor en la arquitectura técnica y diseño del sistema RAG para la evaluación automatizada.
+  *Asesor en la arquitectura técnica y diseño del sistema RAG para la evaluación automatizada.*
 
 - **Irma Torres Vásquez**  
   Pontificia Universidad Javeriana  
   📧 irma.torres@javeriana.edu.co  
   *Asesora en el componente pedagógico. Proporcionó material académico para el entrenamiento del sistema y participó en la validación de la retroalimentación generada por la IA*
 
----
-
-## Estructura del Proyecto
-```
-pdfGrader/
-│
-├── app/                      # Código fuente de la aplicación
-│   ├── main.py               # Punto de entrada de la aplicación
-│   ├── evaluation/           # Lógica de evaluación y análisis de PDF
-│   ├── api/                  # Endpoints y servicios web
-│   └── utils/                # Funciones auxiliares
-│
-├── data/                     # Datos de prueba y rúbricas ejemplo
-├── tests/                    # Pruebas automatizadas
-├── requirements.txt          # Dependencias del proyecto
-├── docker-compose.yml        # Configuración para despliegue con Docker
-└── README.md                 # Documentación del proyecto
-```
 ---
 
 ## ¿Cómo ejecutar?
