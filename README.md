@@ -25,7 +25,7 @@ Responsables de la definición del alcance pedagógico, desarrollo técnico e im
 - **PhD Luis Gabriel Moreno Sandoval**  
   Pontificia Universidad Javeriana  
   📧 morenoluis@javeriana.edu.co  
-  *Asesor en la arquitectura técnica y diseño del sistema RAG para la evaluación automatizada.
+  *Asesor en la arquitectura técnica y diseño del sistema RAG para la evaluación automatizada.*
 
 - **Irma Torres Vásquez**  
   Pontificia Universidad Javeriana  
