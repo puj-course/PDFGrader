@@ -18,7 +18,7 @@ Responsables de la definición del alcance pedagógico, desarrollo técnico e im
 - **[Juan Pablo Arias Buitrago](https://github.com/JuanParias29/Perfil_GitHub)** – *Data Scientist & Scrum Master*  
 - **[Paula Andrea Velasquez Romero](https://github.com/Andyy870)** – *Data Scientist & ML Engineer*  
 - **[Laura Victoria Beltrán Arias](https://github.com/Vankold1)** – *Data Scientist & Business Analyst*  
-- **[Daniel Santiago Avila Medina](https://github.com/dsavilam)** – *ML Engineer & MLOps*
+- **[Daniel Santiago Avila Medina](https://github.com/dsavilam)** – *Systems Architect & Software Developer*
 
 ## Mentores
 
