@@ -26,11 +26,24 @@
 
                 <h4>Inscribir alumnos</h4>
                 <div class="scrollbox">
-                    <label class="check" th:each="al : ${alumnos}">
-                        <input type="checkbox" th:field="*{studentIds}" th:value="${al.id}"/>
-                        <span th:text="${al.fullName} + ' (' + ${al.email} + ')'"></span>
-                    </label>
+                    <ul class="enroll-list">
+                        <li class="enroll-item" th:each="al : ${alumnos}">
+                            <!-- Toda la fila es clicable porque es un label -->
+                            <label class="enroll-row">
+                                <!-- El input va primero para poder animar con ~ -->
+                                <input class="enroll-check" type="checkbox"
+                                       th:field="*{studentIds}" th:value="${al.id}"/>
+
+                                <!-- Nombre a la izquierda -->
+                                <span class="name" th:text="${al.fullName} + ' (' + ${al.email} + ')'"></span>
+
+                                <!-- Toggle bonito a la derecha -->
+                                <span class="toggle__slider" aria-hidden="true"></span>
+                            </label>
+                        </li>
+                    </ul>
                 </div>
+
 
                 <button type="submit" class="btn primary">Crear y matricular</button>
             </form>

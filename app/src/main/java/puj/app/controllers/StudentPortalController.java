@@ -119,6 +119,6 @@ public class StudentPortalController {
         var user = userRepo.findById(me.getUserId()).orElseThrow();
         model.addAttribute("me", me);
         model.addAttribute("user", user);
-        return "student/Profile"; // Asegúrate de tener templates/student/Profile.html
+        return "student/Profile";
     }
 }

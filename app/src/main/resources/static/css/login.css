@@ -1,47 +1,27 @@
 :root{
-    --bg:#0b1220; --ink:#e5e7eb; --muted:#94a3b8;
-    --card:#0f172a; --line:#1f2937;
-    --p:#7c3aed; --p-2:#8b5cf6; --ok:#22c55e; --err:#ef4444;
-    --shadow:0 20px 60px rgba(2,6,23,.45);
+    --bg:#f6f8fc; --ink:#0f172a; --muted:#6b7280; --card:#ffffff; --line:#e5e7eb;
+    --p: #a5d391; --p-2:#60a5fa; --shadow:0 12px 34px rgba(2,6,23,.08)
 }
-*{box-sizing:border-box}
-html,body{height:100%}
+*{box-sizing:border-box}html,body{height:100%}
 body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);overflow-x:hidden}
-
 .scene{position:relative;min-height:100%}
-.blob{position:absolute;filter:blur(70px);opacity:.6;animation:float 16s ease-in-out infinite}
-.b1{width:420px;height:420px;background:radial-gradient(circle at 30% 30%, var(--p-2), transparent 60%);top:-80px;left:-80px}
-.b2{width:520px;height:520px;background:radial-gradient(circle at 70% 40%, #22d3ee, transparent 60%);bottom:-120px;right:-120px;animation-delay:2s}
-.b3{width:360px;height:360px;background:radial-gradient(circle at 50% 60%, #f472b6, transparent 60%);bottom:10%;left:10%;animation-delay:4s}
-@keyframes float{50%{transform:translateY(15px)}}
-
 .shell{max-width:980px;margin:0 auto;padding:64px 24px;display:flex;justify-content:center;align-items:center;min-height:100vh}
-.card{width:100%;max-width:460px;background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
-    border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);backdrop-filter:blur(10px);padding:28px}
-.pop{animation:pop .6s cubic-bezier(.2,.8,.2,1)}
-@keyframes pop{from{transform:translateY(20px) scale(.98);opacity:0}to{transform:none;opacity:1}}
-
+.card{width:100%;max-width:480px;background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:28px}
+.pop{animation:pop .5s cubic-bezier(.2,.8,.2,1)} @keyframes pop{from{transform:translateY(16px);opacity:0}to{transform:none;opacity:1}}
 .title{font-family:Poppins,Inter,sans-serif;font-weight:700;margin:0 0 6px;font-size:28px}
 .subtitle{margin:0 0 18px;color:var(--muted)}
-
 .form{display:grid;gap:14px;margin:10px 0 8px}
 .field{display:grid;gap:8px}
 .field span{color:var(--muted);font-weight:600}
-input{width:100%;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.02);color:var(--ink);
-    border:1px solid var(--line);outline:none;transition:border .2s, box-shadow .2s}
-input:focus{border-color:var(--p);box-shadow:0 0 0 5px rgba(124,58,237,.15)}
-
+input{width:100%;padding:12px 14px;border-radius:12px;background:#fff;color:var(--ink);border:1px solid var(--line);outline:none;transition:border .2s, box-shadow .2s, background .2s}
+input:hover{background:#fbfdff}
+input:focus{border-color:var(--p);box-shadow:0 0 0 4px rgba(79,70,229,.22)}
 .btn{appearance:none;border:0;border-radius:14px;padding:12px 16px;font-weight:700;cursor:pointer;width:100%;
-    transition:transform .06s ease, filter .2s ease, background .2s}
-.btn.primary{background:linear-gradient(135deg,var(--p),var(--p-2));color:white}
-.btn:hover{filter:brightness(1.06)}
-.btn:active{transform:translateY(1px)}
-.btn::after{content:"";position:absolute}
-
-.alert{border-radius:12px;padding:10px 12px;font-weight:600;margin-bottom:10px;border:1px solid var(--line)}
-.alert.ok{background:rgba(34,197,94,.12);color:#86efac}
-.alert.error{background:rgba(239,68,68,.12);color:#fecaca}
-
-a.link{color:#93c5fd;text-decoration:none;font-weight:600}
-a.link:hover{text-decoration:underline}
+    background:linear-gradient(135deg,var(--p),var(--p-2));color:#fff;box-shadow:0 8px 20px rgba(79,70,229,.25);
+    transition:transform .06s, filter .2s, box-shadow .2s}
+.btn:hover{filter:brightness(1.05)} .btn:active{transform:translateY(1px)} .btn:focus-visible{outline:none; box-shadow:0 0 0 4px rgba(79,70,229,.22)}
+.alert{border-radius:12px;padding:10px 12px;font-weight:600;margin-bottom:10px;border:1px solid var(--line);background:#fff}
+.alert.ok{background:#ecfdf5;color:#166534}
+.alert.error{background:#fef2f2;color:#991b1b}
+a.link{color: #6e96ef;text-decoration:none;font-weight:700}  a.link:hover{text-decoration:underline}
 .muted{color:var(--muted);text-align:center;margin-top:8px}

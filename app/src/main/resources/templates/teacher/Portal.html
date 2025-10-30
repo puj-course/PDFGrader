@@ -11,7 +11,7 @@
     <main class="shell">
         <section class="card pop">
             <header class="bar">
-                <div class="brand">📘 Portal Profesor</div>
+                <div class="brand">Portal Profesor</div>
                 <nav class="menu">
                     <a th:href="@{/teacher/profile}" class="btn ghost">Mi perfil</a>
                     <a th:href="@{/teacher/course/new}" class="btn primary">Crear curso</a>
@@ -19,6 +19,7 @@
                 </nav>
             </header>
 
+            <p class="hello" th:text="'Hola ' + ${user.fullName} + '!'"></p>
             <div th:if="${success}" th:text="${success}" class="alert ok"></div>
 
             <h3>Mis cursos</h3>

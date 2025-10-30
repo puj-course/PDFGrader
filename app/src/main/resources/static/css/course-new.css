@@ -1,23 +1,113 @@
-:root{--bg:#0b1220;--ink:#e6e9ef;--muted:#9aa4b2;--card:#0f172a;--line:#1f2937;--p:#f59e0b;--p2:#fbbf24;--shadow:0 24px 70px rgba(2,6,23,.45)}
-*{box-sizing:border-box}html,body{height:100%}
-body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:radial-gradient(1200px 520px at 50% -10%, rgba(245,158,11,.12), transparent 60%), var(--bg)}
+/* ========= Tema claro y base ========= */
+:root{
+    --bg:#f6f8fc; --ink:#0f172a; --muted:#6b7280; --card:#ffffff; --line:#e5e7eb;
+    --p:#22c55e; --p2:#16a34a; --warn: #c5dfaa;
+    --shadow:0 12px 34px rgba(2,6,23,.08)
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg)}
 .shell{max-width:1000px;margin:0 auto;padding:60px 22px}
-.card{background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);backdrop-filter:blur(10px);padding:22px}
-.pop{animation:pop .5s ease}@keyframes pop{from{transform:translateY(18px);opacity:0}to{transform:none;opacity:1}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:22px}
+.pop{animation:pop .45s ease}
+@keyframes pop{from{transform:translateY(14px);opacity:0}to{transform:none;opacity:1}}
+
 .header{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:12px}
 .title{font-family:Poppins,Inter,sans-serif;margin:0}
-.btn{appearance:none;border:1px solid var(--line);background:transparent;color:var(--ink);padding:10px 14px;border-radius:12px;cursor:pointer;text-decoration:none;font-weight:700}
-.btn.ghost:hover{background:rgba(255,255,255,.04)}
-.btn.primary{background:linear-gradient(135deg,var(--p),var(--p2));color:#0b1220;border:none}
 
+.btn{appearance:none;border:1px solid var(--line);background:#fff;color:var(--ink);padding:10px 14px;border-radius:12px;cursor:pointer;text-decoration:none;font-weight:700;transition:transform .06s, background .2s, filter .2s}
+.btn.ghost:hover{background: #dde0e8
+}
+.btn.primary{background:linear-gradient(135deg,var(--p),var(--p2));color:#0b1220;border:none}
+.btn:active{transform:translateY(1px)}
+
+/* ========= Formulario general ========= */
 .form{display:grid;gap:14px}
 .cols{display:grid;gap:12px}
 @media (min-width:820px){.cols{grid-template-columns:1fr 1fr}}
 .field{display:grid;gap:8px}
 .field span{color:var(--muted);font-weight:600}
-input{width:100%;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.02);color:var(--ink);border:1px solid var(--line);outline:none;transition:border .2s, box-shadow .2s}
-input:focus{border-color:var(--p);box-shadow:0 0 0 5px rgba(245,158,11,.18)}
-.scrollbox{max-height:250px;overflow:auto;border:1px solid var(--line);border-radius:14px;padding:10px;background:rgba(255,255,255,.02)}
-.check{display:flex;gap:10px;align-items:center;padding:8px;border-radius:10px}
-.check:hover{background:rgba(255,255,255,.03)}
-.alert.error{border-radius:12px;padding:10px 12px;background:rgba(239,68,68,.12);color:#fecaca;border:1px solid var(--line);margin-bottom:10px}
+
+/* ¡Importante!: estiliza SOLO campos de texto/select/fecha, no checkboxes */
+input[type="text"], input[type="email"], input[type="number"],
+input[type="datetime-local"], select, textarea{
+    width:100%;padding:12px 14px;border-radius:12px;background:#fff;color:var(--ink);
+    border:1px solid var(--line);outline:none;transition:border .2s, box-shadow .2s, background .2s
+}
+input[type="text"]:hover, input[type="email"]:hover, input[type="number"]:hover,
+input[type="datetime-local"]:hover, select:hover, textarea:hover{background: #dde0e8
+}
+input[type="text"]:focus, input[type="email"]:focus, input[type="number"]:focus,
+input[type="datetime-local"]:focus, select:focus, textarea:focus{
+    border-color:var(--warn); box-shadow:0 0 0 4px rgb(34, 197, 178)
+}
+
+.scrollbox{max-height:340px;overflow:auto;border:1px solid var(--line);border-radius:14px;padding:10px;background:#fff}
+
+/* ========= Lista de inscripción con toggle ========= */
+.enroll-list{list-style:none;margin:0;padding:4px}
+.enroll-item{margin:6px 0}
+
+/* Toda la fila es clicable porque es un <label> */
+.enroll-row{
+    position:relative;
+    display:grid; grid-template-columns:1fr auto; align-items:center; gap:12px;
+    padding:12px 14px; border:1px dashed var(--line); border-radius:12px;
+    background:#fafbff; cursor:pointer;
+    transition:background .2s, box-shadow .2s, transform .06s, border-color .2s;
+}
+.enroll-row:hover{background: #b7c6e6
+}
+.enroll-row:focus-within{box-shadow:0 0 0 3px rgba(34,197,94,.20)}
+.name{font-weight:600;color:var(--ink)}
+
+/* Resaltado extra cuando está seleccionado (si el navegador soporta :has) */
+@supports selector(:has(*)){
+    .enroll-row:has(.enroll-check:checked){
+        background:#f0fdf4; border-color:#bbf7d0; /* verde suave */
+        box-shadow:0 0 0 3px rgba(34,197,94,.18) inset;
+    }
+}
+
+/* Esconde visualmente el checkbox, pero sigue accesible */
+.enroll-check{
+    position:absolute; width:1px; height:1px; margin:-1px; border:0; padding:0;
+    clip:rect(0 0 0 0); overflow:hidden; white-space:nowrap;
+}
+
+/* Toggle (track + knob) */
+.toggle__slider{
+    width:50px; height:30px; border-radius:999px;
+    background:#e5e7eb; border:1px solid #cbd5e1;
+    box-shadow:inset 0 1px 3px rgba(2,6,23,.08);
+    position:relative; transition:background .25s, border-color .25s, box-shadow .25s, filter .2s;
+}
+.toggle__slider::before{
+    content:""; position:absolute; left:3px; top:50%; transform:translateY(-50%);
+    width:24px; height:24px; border-radius:50%; background:#fff;
+    box-shadow:0 2px 6px rgba(2,6,23,.15);
+    transition:transform .24s cubic-bezier(.22,.61,.36,1);
+}
+
+/* Checked: mueve el knob y pinta el track */
+.enroll-check:checked ~ .toggle__slider{
+    background:linear-gradient(135deg,var(--p),var(--p2)); border-color:transparent;
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);
+}
+.enroll-check:checked ~ .toggle__slider::before{
+    transform:translate(22px,-50%) scale(1.03);
+}
+
+/* Foco visible en el toggle (accesibilidad) */
+.enroll-check:focus-visible ~ .toggle__slider{
+    filter:drop-shadow(0 0 0.35rem rgba(34,197,94,.35));
+}
+
+/* Móvil: toggle un poco más grande */
+@media (max-width:480px){
+    .toggle__slider{width:56px;height:32px}
+    .toggle__slider::before{width:26px;height:26px}
+}
+
+/* ========= Alertas ========= */
+.alert.error{border-radius:12px;padding:10px 12px;background:#fef2f2;color:#991b1b;border:1px solid var(--line);margin-bottom:10px}

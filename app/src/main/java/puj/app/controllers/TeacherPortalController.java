@@ -46,6 +46,7 @@ public class TeacherPortalController {
         var teaches = courseInstructorRepo.findByUserId(me.getUserId());
         var courseIds = teaches.stream().map(CourseInstructor::getCourseId).toList();
         var courses = courseRepo.findAllById(courseIds);
+        var user = userRepo.findById(me.getUserId()).orElseThrow();
 
         var assignmentsByCourse = courses.stream().collect(Collectors.toMap(
                 Course::getId,
@@ -53,6 +54,7 @@ public class TeacherPortalController {
         ));
 
         model.addAttribute("me", me);
+        model.addAttribute("user", user);
         model.addAttribute("courses", courses);
         model.addAttribute("assignmentsByCourse", assignmentsByCourse);
         return "teacher/Portal";

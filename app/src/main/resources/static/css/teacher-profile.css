@@ -1,16 +1,15 @@
-:root{--bg:#0b1220;--ink:#e6e9ef;--muted:#9aa4b2;--card:#0f172a;--line:#1f2937;--shadow:0 24px 70px rgba(2,6,23,.45)}
+:root{--bg:#f6f8fc; --ink:#0f172a; --muted:#6b7280; --card:#ffffff; --line:#e5e7eb; --shadow:0 12px 34px rgba(2,6,23,.08)}
 *{box-sizing:border-box}html,body{height:100%}
-body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:radial-gradient(1100px 520px at 50% -10%, rgba(139,92,246,.12), transparent 60%), var(--bg)}
+body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg)}
 .shell{max-width:900px;margin:0 auto;padding:60px 22px}
-.card{background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);backdrop-filter:blur(10px);padding:22px}
-.pop{animation:pop .5s ease}@keyframes pop{from{transform:translateY(18px);opacity:0}to{transform:none;opacity:1}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:22px}
+.pop{animation:pop .45s ease}@keyframes pop{from{transform:translateY(14px);opacity:0}to{transform:none;opacity:1}}
 .header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
 .title{font-family:Poppins,Inter,sans-serif;margin:0}
 .inline{display:inline}
-.btn{appearance:none;border:1px solid var(--line);background:transparent;color:var(--ink);padding:10px 14px;border-radius:12px;cursor:pointer;text-decoration:none;font-weight:700}
-.btn.ghost:hover{background:rgba(255,255,255,.04)}
-
+.btn{appearance:none;border:1px solid var(--line);background:#fff;color:var(--ink);padding:10px 14px;border-radius:12px;cursor:pointer;text-decoration:none;font-weight:700}
+.btn.ghost:hover{background:#eef2ff}
 .grid{display:grid;gap:16px;grid-template-columns:90px 1fr;align-items:center}
-.avatar{width:90px;height:90px;border-radius:18px;display:grid;place-items:center;font-size:46px;background:rgba(255,255,255,.03);border:1px solid var(--line);animation:float 6s ease-in-out infinite}
+.avatar{width:90px;height:90px;border-radius:18px;display:grid;place-items:center;font-size:46px;background:#f3f6ff;border:1px solid var(--line);animation:float 6s ease-in-out infinite; box-shadow:0 8px 16px rgba(79,70,229,.12)}
 @keyframes float{50%{transform:translateY(4px)}}
 .info p{margin:0 0 8px}

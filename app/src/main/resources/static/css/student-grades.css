@@ -1,39 +1,50 @@
 :root{
-    --bg:#071427; --ink:#e6edf6; --muted:#9db1c8;
-    --card:#0d1b31; --line:#1a2a47;
-    --p:#0ea5e9; --p2:#22d3ee;
-    --shadow:0 24px 70px rgba(2,6,23,.55);
+    --bg:#f6f8fc; --ink:#0f172a; --muted:#6b7280; --card:#ffffff; --line:#e5e7eb;
+    --p:#2563eb; --p2:#60a5fa; --ok:#16a34a; --err:#dc2626;
+    --shadow:0 12px 34px rgba(2,6,23,.08);
 }
-@media (prefers-color-scheme: light){
-    :root{ --bg:#f3f7fb; --ink:#0e1525; --muted:#5b6b7f; --card:#ffffff; --line:#e5e9f0;
-        --shadow:0 18px 50px rgba(2,6,23,.12); }
-}
+
+/* Base */
 *{box-sizing:border-box} html,body{height:100%}
-body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:
-        radial-gradient(1200px 520px at 0% -10%, rgba(14,165,233,.16), transparent 60%),
-        radial-gradient(900px 420px at 100% 0%, rgba(34,211,238,.14), transparent 60%),
-        var(--bg)}
-
+body{
+    margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif; color:var(--ink);
+    background:#fff; /* Fondo blanco solicitado */
+}
 .shell{max-width:1200px;margin:0 auto;padding:64px 22px}
-.card{background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-    border:1px solid var(--line);border-radius:22px;backdrop-filter:blur(10px);
-    box-shadow:var(--shadow);padding:22px}
-.pop{animation:pop .55s cubic-bezier(.2,.8,.2,1)}
-@keyframes pop{from{transform:translateY(18px);opacity:0}to{transform:none;opacity:1}}
+.card{
+    background:var(--card); border:1px solid var(--line); border-radius:18px;
+    box-shadow:var(--shadow); padding:22px;
+}
+.pop{animation:pop .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes pop{from{transform:translateY(14px);opacity:0}to{transform:none;opacity:1}}
 
-.top{display:flex;justify-content:space-between;align-items:center;gap:12px}
 h2{font-family:Poppins,Inter,sans-serif;margin:0}
-.btn{appearance:none;border:1px solid var(--line);background:transparent;color:var(--ink);
-    padding:10px 14px;border-radius:12px;cursor:pointer;text-decoration:none;font-weight:700;
-    transition:background .2s, transform .06s}
-.btn.ghost:hover{background:rgba(255,255,255,.06)} .btn:active{transform:translateY(1px)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px}
 
-.hello{color:var(--muted);margin:8px 0 12px}
+/* Botones – mismos que Student Portal */
+.btn{
+    appearance:none; display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+    border:1px solid var(--line); background:#fff; color:var(--ink);
+    padding:10px 14px; border-radius:12px; font-weight:700; text-decoration:none; cursor:pointer;
+    transition:transform .06s, background .2s, filter .2s, box-shadow .2s;
+}
+.btn.ghost:hover{background:#f1f5f9}
+.btn.primary{
+    border:none; background:linear-gradient(135deg,var(--p),var(--p2)); color:#fff;
+    box-shadow:0 8px 20px rgba(37,99,235,.22);
+}
+.btn.primary:hover{filter:brightness(1.05)}
+.btn:active{transform:translateY(1px)}
+.btn:focus-visible{outline:none; box-shadow:0 0 0 4px rgba(37,99,235,.22)}
 
-.table-wrap{overflow:auto;border-radius:14px;border:1px solid var(--line)}
-.table{width:100%;border-collapse:collapse;background:linear-gradient(180deg, rgba(255,255,255,.02), transparent)}
-.table thead tr{background:linear-gradient(90deg, color-mix(in srgb, var(--p) 18%, transparent), transparent 60%)}
-.table th,.table td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:left}
-.table tbody tr{transition:background .2s, transform .12s}
-.table tbody tr:hover{background:rgba(255,255,255,.06);transform:translateX(2px)}
+/* Texto meta */
+.hello{color:var(--muted); margin:8px 0 12px}
+
+/* Tabla */
+.table-wrap{overflow:auto;border-radius:14px;border:1px solid var(--line);background:linear-gradient(#fff, #fff)}
+.table{width:100%; border-collapse:collapse; background:transparent}
+.table thead tr{background:linear-gradient(90deg,#f3f6ff,#fff 60%)}
+.table th,.table td{padding:12px 14px; border-bottom:1px solid var(--line); text-align:left}
+.table tbody tr{transition:background .18s, transform .12s}
+.table tbody tr:hover{background:#f7fbff; transform:translateX(2px)}
 .table tr:last-child td{border-bottom:none}
