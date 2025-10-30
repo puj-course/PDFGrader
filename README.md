@@ -34,24 +34,6 @@ Responsables de la definición del alcance pedagógico, desarrollo técnico e im
 
 ---
 
-## Estructura del Proyecto
-```
-pdfGrader/
-│
-├── app/                      # Código fuente de la aplicación
-│   ├── main.py               # Punto de entrada de la aplicación
-│   ├── evaluation/           # Lógica de evaluación y análisis de PDF
-│   ├── api/                  # Endpoints y servicios web
-│   └── utils/                # Funciones auxiliares
-│
-├── data/                     # Datos de prueba y rúbricas ejemplo
-├── tests/                    # Pruebas automatizadas
-├── requirements.txt          # Dependencias del proyecto
-├── docker-compose.yml        # Configuración para despliegue con Docker
-└── README.md                 # Documentación del proyecto
-```
----
-
 ## ¿Cómo ejecutar?
 
 1. Clonar el repositorio
