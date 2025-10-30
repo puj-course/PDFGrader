@@ -20,11 +20,17 @@ Responsables de la definición del alcance pedagógico, desarrollo técnico e im
 - **[Laura Victoria Beltrán Arias](https://github.com/Vankold1)** – *Data Scientist & Business Analyst*  
 - **[Daniel Santiago Avila Medina](https://github.com/dsavilam)** – *ML Engineer & MLOps*
 
-## Dirección académica
+## Mentores
 
-PhD Luis Gabriel Moreno Sandoval  
-Pontificia Universidad Javeriana  
-📧 morenoluis@javeriana.edu.co
+- **PhD Luis Gabriel Moreno Sandoval**  
+  Pontificia Universidad Javeriana  
+  📧 morenoluis@javeriana.edu.co  
+  *Asesor en la arquitectura técnica y diseño del sistema RAG para la evaluación automatizada.
+
+- **Irma Torres Vásquez**  
+  Pontificia Universidad Javeriana  
+  📧 irma.torres@javeriana.edu.co  
+  *Asesora en el componente pedagógico. Proporcionó material académico para el entrenamiento del sistema y participó en la validación de la retroalimentación generada por la IA*
 
 ---
 
